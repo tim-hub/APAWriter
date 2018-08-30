@@ -1,0 +1,8 @@
+F:\APAWriterLibrary\APAWriterLibrary\bin\Debug\APAWriterLibrary.dll
+F:\APAWriterLibrary\APAWriterLibrary\bin\Debug\APAWriterLibrary.pdb
+F:\APAWriterLibrary\APAWriterLibrary\obj\Debug\APAWriterLibrary.csprojResolveAssemblyReference.cache
+F:\APAWriterLibrary\APAWriterLibrary\obj\Debug\APAWriterLibrary.APAForm.resources
+F:\APAWriterLibrary\APAWriterLibrary\obj\Debug\APAWriterLibrary.csproj.GenerateResource.cache
+F:\APAWriterLibrary\APAWriterLibrary\obj\Debug\APAWriterLibrary.csproj.CoreCompileInputs.cache
+F:\APAWriterLibrary\APAWriterLibrary\obj\Debug\APAWriterLibrary.dll
+F:\APAWriterLibrary\APAWriterLibrary\obj\Debug\APAWriterLibrary.pdb
