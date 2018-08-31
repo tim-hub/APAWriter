@@ -12,13 +12,12 @@ namespace APAWriterLibrary
 {
     public partial class APAForm: UserControl
     {
-        private APAController controller;
+        private const string DEFAULTPATH = "";
+        private APAController apaController;
+        private APPController appController;
+        
 
         private string laTexPreview;
-
-        private const string DEFAULTPATH = "";
-        
-        
 
         public APAForm()
         {
@@ -28,14 +27,16 @@ namespace APAWriterLibrary
 
         private void openAndCreate()
         {
-            this.controller = new APAController(this);
-            this.controller.init();
+            this.apaController = new APAController(this);
+            this.apaController.init();
+
+            this.appController = new APPController();
         }
 
         private void clear()
         {
             Console.WriteLine("clearing");
-            this.controller.clear();
+            this.apaController.clear();
             inputBox.Clear();
             outputBox.Clear();
         }
@@ -43,13 +44,17 @@ namespace APAWriterLibrary
         private void save(String path)
         {
             Console.WriteLine("saving to " + path);
-            System.IO.File.WriteAllText(path,
-                this.controller.inputSource(inputBox.Text));
+            this.appController.save(
+                this.apaController.inputSource(inputBox.Text),
+                path);
         }
 
         private void input(String userInput)
         {
-            this.laTexPreview= this.controller.inputSource(userInput);
+
+            this.laTexPreview= this.apaController.inputSource(userInput);
+
+            this.outputBox.Text = laTexPreview;
         }
 
         private void preview(String latexOut)
@@ -59,22 +64,25 @@ namespace APAWriterLibrary
 
         private void quit()
         {
+            this.appController.quit();
             MessageBox.Show("Goodbye");
             Application.Exit();
         }
 
-        private String help()
+        private string getSyntaxhelp()
         {
-            return @"
-# Help Doc.
-This is an example which can be viewed at anytime when you click the help button.
+            return appController.getSyntaxhelp();
+        }
 
-";
+        private string getControlHelp()
+        {
+            return appController.getControlhelp();
         }
 
         private void outputBox_TextChanged(object sender, EventArgs e)
         {
             Console.WriteLine("Output preview changed too");
+            input(inputBox.Text);
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)

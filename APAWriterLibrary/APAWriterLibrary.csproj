@@ -48,8 +48,14 @@
     <Compile Include="APAForm.Designer.cs">
       <DependentUpon>APAForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="APAWriter.cs" />
-    <Compile Include="MDInput.cs" />
+    <Compile Include="Entities\APAText.cs" />
+    <Compile Include="Entities\APAWriter.cs" />
+    <Compile Include="APPController.cs" />
+    <Compile Include="Entities\ControlHelp.cs" />
+    <Compile Include="Entities\HelpDoc.cs" />
+    <Compile Include="Entities\LaTexOutput.cs" />
+    <Compile Include="Entities\MDInput.cs" />
+    <Compile Include="Entities\SyntaxHelp.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Service Include="{94E38DFF-614B-4cbd-B67C-F211BB35CE8B}" />
   </ItemGroup>

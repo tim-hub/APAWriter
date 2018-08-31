@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Text.RegularExpressions;
 
 namespace APAWriterLibrary
 {
@@ -21,8 +22,30 @@ namespace APAWriterLibrary
         /// <returns></returns>
         public string export()
         {
+            string source =  this.sourceInput.get();
+            //System.Diagnostics.Debug.WriteLine("input" + source);
 
-            return this.sourceInput.get();
+            
+
+            string headingPattern = @"# ([a-zA-Z0-9])\w* ";
+            Regex regex = new Regex(headingPattern, RegexOptions.IgnoreCase);
+            string newSource = source;
+
+            MatchCollection matches = regex.Matches(source);
+
+            newSource += matches.Count;
+            foreach(Match m in matches)
+            {
+
+            }
+
+            //string newSource = source.Replace("a", "b");
+            
+            
+
+            //System.Diagnostics.Trace.WriteLine("output: " + source);
+
+            return newSource;
         }
 
         public void clear()

@@ -1,3 +1,11 @@
+/Users/tim/Development/DotNetProjects/APAWriterLibrary/APAWriterLibrary/bin/Debug/APAWriterLibrary.dll
+/Users/tim/Development/DotNetProjects/APAWriterLibrary/APAWriterLibrary/bin/Debug/APAWriterLibrary.pdb
+/Users/tim/Development/DotNetProjects/APAWriterLibrary/APAWriterLibrary/obj/Debug/APAWriterLibrary.csprojResolveAssemblyReference.cache
+/Users/tim/Development/DotNetProjects/APAWriterLibrary/APAWriterLibrary/obj/Debug/APAWriterLibrary.APAForm.resources
+/Users/tim/Development/DotNetProjects/APAWriterLibrary/APAWriterLibrary/obj/Debug/APAWriterLibrary.csproj.GenerateResource.cache
+/Users/tim/Development/DotNetProjects/APAWriterLibrary/APAWriterLibrary/obj/Debug/APAWriterLibrary.csproj.CoreCompileInputs.cache
+/Users/tim/Development/DotNetProjects/APAWriterLibrary/APAWriterLibrary/obj/Debug/APAWriterLibrary.dll
+/Users/tim/Development/DotNetProjects/APAWriterLibrary/APAWriterLibrary/obj/Debug/APAWriterLibrary.pdb
 F:\APAWriterLibrary\APAWriterLibrary\bin\Debug\APAWriterLibrary.dll
 F:\APAWriterLibrary\APAWriterLibrary\bin\Debug\APAWriterLibrary.pdb
 F:\APAWriterLibrary\APAWriterLibrary\obj\Debug\APAWriterLibrary.csprojResolveAssemblyReference.cache
