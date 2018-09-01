@@ -25,19 +25,23 @@ namespace APAWriterLibrary
             string source =  this.sourceInput.get();
             //System.Diagnostics.Debug.WriteLine("input" + source);
 
-            
 
-            string headingPattern = @"# ([a-zA-Z0-9])\w* ";
+
+            //string headingPattern = @"# ([a-zA-Z0-9])\w* ";
+            string headingPattern = @"# \b(?<word>\w+) +";
+
             Regex regex = new Regex(headingPattern, RegexOptions.IgnoreCase);
             string newSource = source;
 
-            MatchCollection matches = regex.Matches(source);
-
-            newSource += matches.Count;
-            foreach(Match m in matches)
+            //MatchCollection matches = regex.Matches(source);
+            Match match = regex.Match(source);
+            int count = match.Groups.Count;
+            if (count > 0)
             {
-
+                newSource += count + match.Groups[0].Value;
             }
+
+            
 
             //string newSource = source.Replace("a", "b");
             
