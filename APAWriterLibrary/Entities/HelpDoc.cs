@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace APAWriterLibrary
 {
-    public abstract class HelpDoc:APAText
+    public class HelpDoc:MDInput
     {
         public HelpDoc(string content):base(content)
         {
@@ -15,9 +15,9 @@ namespace APAWriterLibrary
 
         public string getHepDoc()
         {
-            return this.get();
+            return this.Get();
         }
 
-        abstract public void setHelpDoc(string content);
+        
     }
 }

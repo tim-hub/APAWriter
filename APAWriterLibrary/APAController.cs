@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using APAWriterLibrary.Entities;
 
 namespace APAWriterLibrary
 {
@@ -11,6 +12,7 @@ namespace APAWriterLibrary
     {
         private APAForm theForm;
         private APAWriter theWriter;
+        private List<APARegularExpression> res;
 
         private APAWriter createNew()
         {
@@ -26,22 +28,41 @@ namespace APAWriterLibrary
         /// <summary>
         /// user empty string to initialize the input source.
         /// </summary>
-        public void init()
+        public void Init()
         {
             this.theWriter = createNew();
-            inputSource("");
+            ExportToLaTeX("");
+
+            // initiate and add re into the collection
+            res.Add(new HeadingRE(@"# \b(?<word>\w+) +"));
         }
 
 
-        public void clear()
+        public void Clear()
         {
-            this.theWriter.clear();
+            this.theWriter.Clear();
         }
 
-        public string inputSource(string source)
+        public string ExportToLaTeX(string source)
         {
-            this.theWriter.inputSource(source);
-            return theWriter.export();
+            if (APAWriter.Validate(source))
+            {
+                this.theWriter.Set(source);
+
+                string tmpSource = source;
+
+                foreach(APARegularExpression re in res)
+                {
+                    tmpSource=re.Replace(tmpSource);
+                }
+
+                return tmpSource;
+                
+            }
+
+            return "Errors, cannot rendered to LaTex";
+            
+            
         }
 
     }

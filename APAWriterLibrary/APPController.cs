@@ -22,8 +22,8 @@ This is an example which can be viewed at anytime when you click the help button
 
 ";
 
-        private  SyntaxHelp syntaxDoc;
-        private  ControlHelp controlDoc;
+        private  HelpDoc syntaxDoc;
+        private  HelpDoc controlDoc;
         
         /// <summary>
         /// When the controller created, the help do will be initialized too.
@@ -31,27 +31,29 @@ This is an example which can be viewed at anytime when you click the help button
         /// </summary>
         public APPController()
         {
-            syntaxDoc = new SyntaxHelp(SYNTAXTEXT);
-           
-            controlDoc= new ControlHelp(CONTROLTEXT);  
+            syntaxDoc = new HelpDoc(SYNTAXTEXT);
+        
+            controlDoc= new HelpDoc(CONTROLTEXT);  
         }
 
-        public void quit()
+
+
+        public void Quit()
         {
             Console.WriteLine("App closing");            
         }
 
-        public string getSyntaxhelp()
+        public string GetSyntaxHelp()
         {
             return syntaxDoc.getHepDoc();
         }
 
-        public string getControlhelp()
+        public string GetControlHelp()
         {
             return controlDoc.getHepDoc();
         }
 
-        public void save(string content, string path )
+        public void Save(string content, string path )
         {
             Console.WriteLine("saving to " + path);
             System.IO.File.WriteAllText(path, content);

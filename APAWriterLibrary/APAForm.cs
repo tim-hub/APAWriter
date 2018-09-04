@@ -22,87 +22,87 @@ namespace APAWriterLibrary
         public APAForm()
         {
             InitializeComponent();
-            openAndCreate();
+            Init();
         }
 
-        private void openAndCreate()
+        private void Init()
         {
             this.apaController = new APAController(this);
-            this.apaController.init();
+            this.apaController.Init();
 
             this.appController = new APPController();
         }
 
-        private void clear()
+        private void Clear()
         {
             Console.WriteLine("clearing");
-            this.apaController.clear();
+            this.apaController.Clear();
             inputBox.Clear();
             outputBox.Clear();
         }
 
-        private void save(String path)
+        private void Save(String path)
         {
             Console.WriteLine("saving to " + path);
-            this.appController.save(
-                this.apaController.inputSource(inputBox.Text),
+            this.appController.Save(
+                this.apaController.ExportToLaTeX(inputBox.Text),
                 path);
         }
 
-        private void input(String userInput)
+        private void Input(String userInput)
         {
 
-            this.laTexPreview= this.apaController.inputSource(userInput);
+            this.laTexPreview= this.apaController.ExportToLaTeX(userInput);
 
             this.outputBox.Text = laTexPreview;
         }
 
-        private void preview(String latexOut)
+        private void Preview(String latexOut)
         {
             outputBox.Text= this.laTexPreview;
         }
 
-        private void quit()
+        private void Quit()
         {
-            this.appController.quit();
+            this.appController.Quit();
             MessageBox.Show("Goodbye");
             Application.Exit();
         }
 
         private string getSyntaxhelp()
         {
-            return appController.getSyntaxhelp();
+            return appController.GetSyntaxHelp();
         }
 
         private string getControlHelp()
         {
-            return appController.getControlhelp();
+            return appController.GetControlHelp();
         }
 
         private void outputBox_TextChanged(object sender, EventArgs e)
         {
             Console.WriteLine("Output preview changed too");
-            input(inputBox.Text);
+            Input(inputBox.Text);
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            input(inputBox.Text);
+            Input(inputBox.Text);
         }
 
         private void btnClear_Click(object sender, EventArgs e)
         {
-            clear();
+            Clear();
         }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            save(DEFAULTPATH);
+            Save(DEFAULTPATH);
         }
 
         private void btnQuit_Click(object sender, EventArgs e)
         {
-            quit();
+            Quit();
         }
     }
 }

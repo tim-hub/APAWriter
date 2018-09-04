@@ -7,59 +7,35 @@ using System.Text.RegularExpressions;
 
 namespace APAWriterLibrary
 {
-    class APAWriter
+    class APAWriter:MDInput
     {
-        private MDInput sourceInput;
-
-        public APAWriter(string source)
+        public APAWriter(string content) : base(content)
         {
-            this.sourceInput = new MDInput(source);
+
+        }
+
+        public void Clear()
+        {
+            this.content = null;
         }
 
         /// <summary>
-        /// the export method will return string in LaTex format.
+        /// This is for validating the input content.
+        /// It is an optional feature in future.
+        /// Currently, check is null or not only
         /// </summary>
+        /// <param name="source"></param>
         /// <returns></returns>
-        public string export()
+        public static bool Validate(string source)
         {
-            string source =  this.sourceInput.get();
-            //System.Diagnostics.Debug.WriteLine("input" + source);
-
-
-
-            //string headingPattern = @"# ([a-zA-Z0-9])\w* ";
-            string headingPattern = @"# \b(?<word>\w+) +";
-
-            Regex regex = new Regex(headingPattern, RegexOptions.IgnoreCase);
-            string newSource = source;
-
-            //MatchCollection matches = regex.Matches(source);
-            Match match = regex.Match(source);
-            int count = match.Groups.Count;
-            if (count > 0)
+            if(source != null)
             {
-                newSource += count + match.Groups[0].Value;
+                return true;
             }
 
+            return false;
+
             
-
-            //string newSource = source.Replace("a", "b");
-            
-            
-
-            //System.Diagnostics.Trace.WriteLine("output: " + source);
-
-            return newSource;
-        }
-
-        public void clear()
-        {
-            this.sourceInput.clear();
-        }
-
-        public void inputSource(string source)
-        {
-            this.sourceInput.set(source);
         }
     }
 }

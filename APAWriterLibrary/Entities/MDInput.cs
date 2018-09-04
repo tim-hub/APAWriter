@@ -1,12 +1,22 @@
 ﻿using System;
 namespace APAWriterLibrary
 {
-    public class MDInput: APAText
+    public class MDInput
     {
-
-        public MDInput(string content) : base(content)
+        protected string content;
+        public MDInput(string content) 
         {
+            this.content = content;
+        }
 
+        public string Get()
+        {
+            return content;
+        }
+
+        public void Set(string content)
+        {
+            this.content = content;
         }
 
     }
