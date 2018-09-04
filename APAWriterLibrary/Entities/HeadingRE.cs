@@ -14,38 +14,61 @@ namespace APAWriterLibrary.Entities
 
         }
 
-        public override string Replace(string content)
+        private string ReplaceByMatch(string source,string content, Match m)
         {
-            string source = content;
-            //System.Diagnostics.Debug.WriteLine("input" + source);
-
-
-
-            //string headingPattern = @"# ([a-zA-Z0-9])\w* ";
-            string headingPattern = @"# \b(?<word>\w+) +";
-
-            Regex regex = new Regex(headingPattern, RegexOptions.IgnoreCase);
-            string newSource = source;
-
-            //MatchCollection matches = regex.Matches(source);
-            Match match = regex.Match(source);
-            int count = match.Groups.Count;
-            if (count > 0)
+            string tmp = "\\section{";
+            string newValue = "";
+            try
             {
-                newSource += count + match.Groups[0].Value;
+                newValue = tmp + content.Substring(m.Index + 1, m.Length).Trim() + "}";
+                // remove the first # and trim leading and trailing whitespace.
+
+                return ReplaceByValue(source, m.Value, newValue);
+            }
+            catch (ArgumentOutOfRangeException e)
+            {
+                if (m.Length >= 3 || m.Length<=1)
+                {
+                    //throw e;
+                }
+                
+            }
+            catch (Exception e)
+            {
+                throw e;
             }
 
 
+            return null;
+        }
 
-            //string newSource = source.Replace("a", "b");
+        public override string Replace(string content)
+        {
+            string source = content;
+            string headingPattern = @"# \b(?<word>\w+)";
+
+            Regex regex = new Regex(headingPattern, RegexOptions.IgnoreCase);
 
 
+            Match match = regex.Match(source);
 
-            //System.Diagnostics.Trace.WriteLine("output: " + source);
 
-            return newSource;
+            int count = 0;
 
-            //return this.re + content;
+            if (match.Success)
+            {
+                count++;
+                source = ReplaceByMatch(source, content, match);
+
+                while (match.NextMatch().Success)
+                {
+                    count++;
+                    match = match.NextMatch();
+                    source = ReplaceByMatch(source, content, match);
+                }
+
+            }
+            return source;
 
         }
     }

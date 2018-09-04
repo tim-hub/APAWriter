@@ -12,7 +12,7 @@ namespace APAWriterLibrary
     {
         private APAForm theForm;
         private APAWriter theWriter;
-        private List<APARegularExpression> res;
+        private List<APARegularExpression> res = new List<APARegularExpression>();
 
         private APAWriter createNew()
         {

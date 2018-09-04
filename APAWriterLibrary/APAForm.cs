@@ -7,16 +7,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Threading;
 
 namespace APAWriterLibrary
 {
     public partial class APAForm: UserControl
     {
-        private const string DEFAULTPATH = "";
+        private const string DEFAULTPATH = "./";
+
         private APAController apaController;
         private APPController appController;
         
-
         private string laTexPreview;
 
         public APAForm()
@@ -51,7 +52,7 @@ namespace APAWriterLibrary
 
         private void Input(String userInput)
         {
-
+            Thread.Sleep(100);
             this.laTexPreview= this.apaController.ExportToLaTeX(userInput);
 
             this.outputBox.Text = laTexPreview;
