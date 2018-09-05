@@ -33,13 +33,13 @@ namespace APAWriterLibrary
             this.theWriter = createNew();
             ExportToLaTeX("");
 
-            // initiate and add re into the collection
-            res.Add(new Heading2RE(@"(\n)## \b(?<word>\w+) +(\r)(\n)"));
-            res.Add(new HeadingRE(@"(\n)# \b(?<word>\w+) +(\r)(\n)"));
+            // initiate and add re into the collection, 
+            // use RE @"(\n)## \b(?<word>\w+) +(\r)(\n)")
+            res.Add(new Heading2RE(@"(\n|^)## .*?(?=\n|$)"));
+            res.Add(new HeadingRE(@"(\n|^)# .*?(?=\n|$)"));
             res.Add(new ListRE(@"(\n|^)- .*?(?=\n|$)"));
             
         }
-
 
         public void Clear()
         {

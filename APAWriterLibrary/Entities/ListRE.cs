@@ -50,7 +50,7 @@ namespace APAWriterLibrary.Entities
 
                 if (match.Success)
                 {
-                    source = ReplaceByValue(source, match.Value, "\\begin{itemsize}\n" + match.Value);
+                    source = ReplaceByValue(source, match.Value, "\n\\begin{itemsize}\n" + match.Value);
 
                     count++;
                     source = ReplaceByMatch(source, content, match);

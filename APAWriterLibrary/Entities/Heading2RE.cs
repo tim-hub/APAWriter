@@ -12,11 +12,11 @@ namespace APAWriterLibrary.Entities
 
         private string ReplaceByMatch(string source,string content, Match m)
         {
-            string tmp = "\\subsection{";
+            string tmp = "\n\\subsection{";
             string newValue = "";
             try
             {
-                newValue = tmp + content.Substring(m.Index + 4, m.Length).Trim() + "}";
+                newValue = tmp + content.Substring(m.Index + 3, m.Length-2).Trim() + "}";
                 // remove the first # and trim leading and trailing whitespace.
 
                 return ReplaceByValue(source, m.Value, newValue);
