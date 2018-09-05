@@ -3,20 +3,20 @@ using System.Text.RegularExpressions;
 
 namespace APAWriterLibrary.Entities
 {
-    class HeadingRE:APARegularExpression
+    class ListRE:APARegularExpression
     {
-        public HeadingRE(string re) : base(re)
+        public ListRE(string re) : base(re)
         {
             
         }
 
         private string ReplaceByMatch(string source,string content, Match m)
         {
-            string tmp = "\\section{";
+            string tmp = "\\item ";
             string newValue = "";
             try
             {
-                newValue = tmp + content.Substring(m.Index + 2, m.Length).Trim() + "}";
+                newValue = tmp + content.Substring(m.Index + 2, m.Length-1);
                 // remove the first # and trim leading and trailing whitespace.
 
                 return ReplaceByValue(source, m.Value, newValue);
@@ -45,19 +45,28 @@ namespace APAWriterLibrary.Entities
             try
             {
                 match = regex.Match(source);
+
                 int count = 0;
 
                 if (match.Success)
                 {
+                    source = ReplaceByValue(source, match.Value, "\\begin{itemsize}\n" + match.Value);
+
                     count++;
                     source = ReplaceByMatch(source, content, match);
 
+
                     while (match.NextMatch().Success)
                     {
+                        source = ReplaceByValue(source, "\\end{itemsize}\n", "");
                         count++;
                         match = match.NextMatch();
+                        source = ReplaceByValue(source, match.Value, match.Value + "\\end{itemsize}\n");
                         source = ReplaceByMatch(source, content, match);
+
                     }
+
+
 
                 }
                 return source;
@@ -70,8 +79,6 @@ namespace APAWriterLibrary.Entities
             }
 
             return content;
-
-            
 
         }
     }

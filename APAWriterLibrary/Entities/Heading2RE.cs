@@ -16,7 +16,7 @@ namespace APAWriterLibrary.Entities
             string newValue = "";
             try
             {
-                newValue = tmp + content.Substring(m.Index + 2, m.Length).Trim() + "}";
+                newValue = tmp + content.Substring(m.Index + 4, m.Length).Trim() + "}";
                 // remove the first # and trim leading and trailing whitespace.
 
                 return ReplaceByValue(source, m.Value, newValue);
