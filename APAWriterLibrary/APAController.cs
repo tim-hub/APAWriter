@@ -34,7 +34,9 @@ namespace APAWriterLibrary
             ExportToLaTeX("");
 
             // initiate and add re into the collection
+            res.Add(new Heading2RE(@"## \b(?<word>\w+) +"));
             res.Add(new HeadingRE(@"# \b(?<word>\w+) +"));
+            
         }
 
 
