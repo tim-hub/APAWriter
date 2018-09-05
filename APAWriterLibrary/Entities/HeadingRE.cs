@@ -45,7 +45,7 @@ namespace APAWriterLibrary.Entities
         public override string Replace(string content)
         {
             string source = content;
-            string headingPattern = @"# \b(?<word>\w+)";
+            string headingPattern = @"# \b(?<word>\w+) +";
 
             Regex regex = new Regex(headingPattern, RegexOptions.IgnoreCase);
 
