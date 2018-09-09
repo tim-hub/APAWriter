@@ -9,7 +9,13 @@ namespace APAWriterLibrary.Entities
         {
             
         }
-
+        /// <summary>
+        /// Replace the old value by new value in the match.
+        /// </summary>
+        /// <param name="source">the content which is replaced by other matches</param>
+        /// <param name="content">the original content</param>
+        /// <param name="m">the match</param>
+        /// <returns></returns>
         private string ReplaceByMatch(string source,string content, Match m)
         {
             string tmp = "\n\\section{";

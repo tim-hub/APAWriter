@@ -13,7 +13,8 @@ namespace APAWriterLibrary
 {
     public partial class APAForm: UserControl
     {
-        private const string DEFAULTPATH = "./";
+
+        private string docPath;
 
         private APAController apaController;
         private APPController appController;
@@ -32,6 +33,9 @@ namespace APAWriterLibrary
             this.apaController.Init();
 
             this.appController = new APPController();
+
+            //docPath =  Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+            docPath = @"C:\Users\User\Documents";
         }
 
         private void Clear()
@@ -44,6 +48,7 @@ namespace APAWriterLibrary
 
         private void Save(String path)
         {
+            path = docPath;
             Console.WriteLine("saving to " + path);
             this.appController.Save(
                 this.apaController.ExportToLaTeX(inputBox.Text),
@@ -98,12 +103,28 @@ namespace APAWriterLibrary
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            Save(DEFAULTPATH);
+            
+            Save(docPath);
+            MessageBox.Show("Save to MyDocuments");
         }
 
         private void btnQuit_Click(object sender, EventArgs e)
         {
             Quit();
+        }
+
+        private void btnCtrlHelp_Click(object sender, EventArgs e)
+        {
+            Clear();
+            inputBox.Text = getControlHelp();
+            Input(inputBox.Text);
+        }
+
+        private void btnSyntaxHelp_Click(object sender, EventArgs e)
+        {
+            Clear();
+            inputBox.Text = getSyntaxhelp();
+            Input(inputBox.Text);
         }
     }
 }

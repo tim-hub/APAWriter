@@ -17,7 +17,6 @@ namespace APAWriterLibrary.Entities
             try
             {
                 newValue = tmp + content.Substring(m.Index + 2, m.Length-1);
-                // remove the first # and trim leading and trailing whitespace.
 
                 return ReplaceByValue(source, m.Value, newValue);
             }
@@ -50,7 +49,8 @@ namespace APAWriterLibrary.Entities
 
                 if (match.Success)
                 {
-                    source = ReplaceByValue(source, match.Value, "\n\\begin{itemsize}\n" + match.Value);
+                    source = ReplaceByValue(source, match.Value,
+                        "\n\\begin{itemsize} \n" + match.Value);
 
                     count++;
                     source = ReplaceByMatch(source, content, match);
@@ -58,10 +58,12 @@ namespace APAWriterLibrary.Entities
 
                     while (match.NextMatch().Success)
                     {
-                        source = ReplaceByValue(source, "\\end{itemsize}\n", "");
+                        source = ReplaceByValue(source, "\\end{itemsize}\n", "\n");
                         count++;
                         match = match.NextMatch();
-                        source = ReplaceByValue(source, match.Value, match.Value + "\\end{itemsize}\n");
+                        source = ReplaceByValue(source, 
+                            match.Value, 
+                            match.Value + "\\end{itemsize}\n");
                         source = ReplaceByMatch(source, content, match);
 
                     }

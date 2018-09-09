@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,12 +14,30 @@ namespace APAWriterLibrary
 
         private const string CONTROLTEXT = @"
 # Control Help Doc.
-This is an example which can be viewed at anytime when you click the help button.
+
+
+This is a control help 
+which can be viewed at anytime 
+when you click the help button.
 
 ";
         private const string SYNTAXTEXT = @"
 # Syntax Help Doc.
-This is an example which can be viewed at anytime when you click the help button.
+
+
+This is an example which can be viewed at anytime 
+when you click the help button.
+
+Currently,
+
+# Heading 1
+
+## Heading 2
+
+
+- item1
+- item2
+- item3
 
 ";
 
@@ -55,8 +74,10 @@ This is an example which can be viewed at anytime when you click the help button
 
         public void Save(string content, string path )
         {
-            Console.WriteLine("saving to " + path);
-            System.IO.File.WriteAllText(path, content);
+            path = path + "a.tex";
+
+            File.WriteAllText(path, content);
+
         }
 
 

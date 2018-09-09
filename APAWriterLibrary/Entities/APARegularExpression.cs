@@ -6,6 +6,11 @@ namespace APAWriterLibrary.Entities
     {
         protected string re;
 
+        public APARegularExpression(string re)
+        {
+            this.re = re;
+        }
+
         /// <summary>
         /// This is a Replace function instead of the default String.Replace.
         /// </summary>
@@ -18,10 +23,6 @@ namespace APAWriterLibrary.Entities
             return content.Replace(oldValue, newValue);
         }
 
-        public APARegularExpression(string re)
-        {
-            this.re = re;
-        }
         public abstract string Replace(string content);
 
     }

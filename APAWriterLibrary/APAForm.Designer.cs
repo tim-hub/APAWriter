@@ -35,6 +35,8 @@
             this.btnClear = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnQuit = new System.Windows.Forms.Button();
+            this.btnCtrlHelp = new System.Windows.Forms.Button();
+            this.btnSyntaxHelp = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // inputBox
@@ -66,7 +68,7 @@
             // 
             // btnClear
             // 
-            this.btnClear.Location = new System.Drawing.Point(83, 3);
+            this.btnClear.Location = new System.Drawing.Point(25, 3);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(75, 23);
             this.btnClear.TabIndex = 2;
@@ -76,7 +78,7 @@
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(364, 3);
+            this.btnSave.Location = new System.Drawing.Point(496, 3);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 23);
             this.btnSave.TabIndex = 3;
@@ -94,10 +96,32 @@
             this.btnQuit.UseVisualStyleBackColor = true;
             this.btnQuit.Click += new System.EventHandler(this.btnQuit_Click);
             // 
+            // btnCtrlHelp
+            // 
+            this.btnCtrlHelp.Location = new System.Drawing.Point(148, 3);
+            this.btnCtrlHelp.Name = "btnCtrlHelp";
+            this.btnCtrlHelp.Size = new System.Drawing.Size(75, 23);
+            this.btnCtrlHelp.TabIndex = 5;
+            this.btnCtrlHelp.Text = "Help";
+            this.btnCtrlHelp.UseVisualStyleBackColor = true;
+            this.btnCtrlHelp.Click += new System.EventHandler(this.btnCtrlHelp_Click);
+            // 
+            // btnSyntaxHelp
+            // 
+            this.btnSyntaxHelp.Location = new System.Drawing.Point(272, 3);
+            this.btnSyntaxHelp.Name = "btnSyntaxHelp";
+            this.btnSyntaxHelp.Size = new System.Drawing.Size(75, 23);
+            this.btnSyntaxHelp.TabIndex = 6;
+            this.btnSyntaxHelp.Text = "Syntax";
+            this.btnSyntaxHelp.UseVisualStyleBackColor = true;
+            this.btnSyntaxHelp.Click += new System.EventHandler(this.btnSyntaxHelp_Click);
+            // 
             // APAForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.btnSyntaxHelp);
+            this.Controls.Add(this.btnCtrlHelp);
             this.Controls.Add(this.btnQuit);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnClear);
@@ -118,5 +142,7 @@
         private System.Windows.Forms.Button btnClear;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnQuit;
+        private System.Windows.Forms.Button btnCtrlHelp;
+        private System.Windows.Forms.Button btnSyntaxHelp;
     }
 }
