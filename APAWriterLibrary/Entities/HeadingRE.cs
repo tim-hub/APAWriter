@@ -70,7 +70,7 @@ namespace APAWriterLibrary.Entities
             }
             catch (ArgumentNullException e)
             {
-                // duting the user inputing
+                // during the user inputing
                 // there might be this exception
                 Console.WriteLine(e);
             }

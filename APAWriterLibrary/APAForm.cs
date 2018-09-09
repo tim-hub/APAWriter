@@ -14,7 +14,7 @@ namespace APAWriterLibrary
     public partial class APAForm: UserControl
     {
 
-        private string docPath;
+        private string docPath = @"C:\Users\User\Documents\a.tex";
 
         private APAController apaController;
         private APPController appController;
@@ -34,8 +34,7 @@ namespace APAWriterLibrary
 
             this.appController = new APPController();
 
-            //docPath =  Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
-            docPath = @"C:\Users\User\Documents";
+            
         }
 
         private void Clear()
@@ -48,10 +47,10 @@ namespace APAWriterLibrary
 
         private void Save(String path)
         {
-            path = docPath;
+
             Console.WriteLine("saving to " + path);
             this.appController.Save(
-                this.apaController.ExportToLaTeX(inputBox.Text),
+                outputBox.Text,
                 path);
         }
 
@@ -103,8 +102,14 @@ namespace APAWriterLibrary
 
         private void btnSave_Click(object sender, EventArgs e)
         {
+
             
+            
+            docPath = System.IO.Directory.GetCurrentDirectory()
+            +"APATemp.tex";
+
             Save(docPath);
+            
             MessageBox.Show("Save to MyDocuments");
         }
 

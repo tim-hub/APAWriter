@@ -74,8 +74,7 @@ Currently,
 
         public void Save(string content, string path )
         {
-            path = path + "a.tex";
-
+            
             File.WriteAllText(path, content);
 
         }
