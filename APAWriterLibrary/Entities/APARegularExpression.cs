@@ -2,6 +2,10 @@
 
 namespace APAWriterLibrary.Entities
 {
+    /// <summary>
+    /// This is the base class for all APARegularExpression entities.
+    /// This is an abstract class with an abstract method, Replace.
+    /// </summary>
     abstract class APARegularExpression
     {
         protected string re;

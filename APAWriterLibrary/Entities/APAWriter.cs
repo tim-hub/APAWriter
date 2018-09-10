@@ -7,6 +7,10 @@ using System.Text.RegularExpressions;
 
 namespace APAWriterLibrary
 {
+    /// <summary>
+    /// This is a child class of MDInput.
+    /// This is the core entity for the application.
+    /// </summary>
     class APAWriter:MDInput
     {
         public APAWriter(string content) : base(content)

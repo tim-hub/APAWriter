@@ -7,7 +7,11 @@ using APAWriterLibrary.Entities;
 
 namespace APAWriterLibrary
 {
-
+    /// <summary>
+    /// This is the APAController.
+    /// Which is the core for the application.
+    /// Which is bridge between UI and APA entity.
+    /// </summary>
     class APAController
     {
         private APAForm theForm;

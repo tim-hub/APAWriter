@@ -3,7 +3,11 @@ using System.Text.RegularExpressions;
 
 namespace APAWriterLibrary.Entities
 {
-    class HeadingRE:APARegularExpression
+    /// <summary>
+    /// This is the child class of APA RegularExpression
+    /// It is for Heading/section  formatting.
+    /// </summary>
+    class HeadingRE :APARegularExpression
     {
         public HeadingRE(string re) : base(re)
         {

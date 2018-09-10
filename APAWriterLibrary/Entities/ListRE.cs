@@ -3,6 +3,10 @@ using System.Text.RegularExpressions;
 
 namespace APAWriterLibrary.Entities
 {
+    /// <summary>
+    /// This is the child class of APA RegularExpression
+    /// It is for List formatting.
+    /// </summary>
     class ListRE:APARegularExpression
     {
         public ListRE(string re) : base(re)

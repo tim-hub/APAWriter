@@ -1,6 +1,9 @@
 ﻿using System;
 namespace APAWriterLibrary
 {
+    /// <summary>
+    /// This is the class for store the content in the Markdinw-like format.
+    /// </summary>
     public class MDInput
     {
         protected string content;

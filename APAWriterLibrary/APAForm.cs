@@ -11,6 +11,10 @@ using System.Threading;
 
 namespace APAWriterLibrary
 {
+    /// <summary>
+    /// This is the UI of the application.
+    /// All users' operations are here.
+    /// </summary>
     public partial class APAForm: UserControl
     {
 

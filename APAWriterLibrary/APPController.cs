@@ -8,10 +8,12 @@ using APAWriterLibrary.Entities;
 
 namespace APAWriterLibrary
 {
+    /// <summary>
+    /// This is the controller for application.
+    /// The methods for application managing is here.
+    /// </summary>
     public class  APPController
     {
-        
-
         private const string CONTROLTEXT = @"
 # Control Help Doc.
 

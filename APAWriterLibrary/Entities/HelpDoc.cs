@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace APAWriterLibrary
 {
+    /// <summary>
+    /// This is the class for help document which can be showed in application.
+    /// </summary>
     public class HelpDoc:MDInput
     {
         public HelpDoc(string content):base(content)
